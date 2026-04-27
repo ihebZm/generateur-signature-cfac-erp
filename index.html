@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.png" />
-    <title>Email Signature Generator</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <script type="text/javascript">
-      let baseUrl = "https://raw.githubusercontent.com/ihebZm/images_hosting_cfac/main/kibo-model-v1/assets/images/";
 
-      window.esgConfig = {
-        useCache: false,
-        baseUrl: baseUrl,
-        companies: [
-          {
-            name: "kibo",
-            url: "https://www.kibo.com",
-            logo: baseUrl + "v1_2.png",
-          },
-        ],
-      };
-    </script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.png" />
+  <title>Email Signature Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
+  <script type="text/javascript">
+    let baseUrl = "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/public/logo/";
 
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    window.esgConfig = {
+      useCache: false,
+      baseUrl: baseUrl,
+      companies: [
+        {
+          name: "kibo",
+          url: "https://www.kibo.com",
+          logo: baseUrl + "v1_2.png",
+        },
+        {
+          name: "kibo",
+          url: "https://www.kibo.com",
+          logo: baseUrl + "v1_2_kibo.svg",
+        },
+        {
+          name: "embc",
+          url: "https://www.embc.com",
+          logo: baseUrl + "v1_2_embc.png",
+        },
+      ],
+    };
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

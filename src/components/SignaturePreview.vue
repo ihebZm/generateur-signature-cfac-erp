@@ -14,112 +14,122 @@
         line-height: 1.2;
       "
     >
-      <tr>
-        <!-- LEFT SIDE -->
-        <td style="padding: 8px 10px; vertical-align: top; width: 260px">
-          
-          <!-- NAME -->
-          <div
+      <tbody>
+        <tr>
+          <!-- LEFT SIDE -->
+          <td style="padding: 8px 10px; vertical-align: top; width: 260px">
+            
+            <!-- NAME -->
+            <div
+              style="
+                font-family: 'Brittany Signature', cursive;
+                font-size: 30px;
+                color: #000;
+                width: 216px;
+                height: 65px;
+              "
+            >
+              {{ name }}
+            </div>
+
+            <!-- JOB -->
+            <div
+              style="
+                font-size: 11px;
+                margin-top: -10px;
+                font-family: Poppins;
+              "
+            >
+              {{ jobTitle }}
+            </div>
+
+            <!-- PHONES -->
+            <table style="margin-top: 10px">
+              <tbody>
+                <tr>
+                  <td style="width: 20px">
+                    <span class="icon">
+                      <img src="https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/public/images-template-icons/v2_10.png" />
+                    </span>
+                  </td>
+                  <td class="text">{{ office }}</td>
+                  <td class="sep">|</td>
+                  <td class="text">{{ mobile }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- WEBSITE -->
+            <table style="margin-top: 10px">
+              <tbody>
+                <tr>
+                  <td style="width: 20px">
+                    <span class="icon">
+                      <img src="https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/public/images-template-icons/v2_11.png" />
+                    </span>
+                  </td>
+                  <td class="text">
+                    {{ companyUrlReadable }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- ADDRESS -->
+            <table style="margin-top: 10px">
+              <tbody>
+                <tr>
+                  <td style="width: 20px; vertical-align: top">
+                    <span class="icon">
+                      <img src="https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/public/images-template-icons/v2_12.png" />
+                    </span>
+                  </td>
+                  <td class="text">
+                    {{ companyAddress }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </td>
+
+          <!-- RIGHT SIDE -->
+          <td
             style="
-              font-family: 'Brittany Signature', cursive;
-              font-size: 30px;
-              color: #000;
-              width: 216px;
-              height: 65px;
+              vertical-align: top;
+              width: 300px;
+              text-align: center;
+              padding: 7px 0;
             "
           >
-            {{ name }}
-          </div>
+            <!-- LOGO -->
+            <img
+              :src="companyLogo"
+              style="
+                width: 170px;
+                display: block;
+                margin: 20px auto 0;
+              "
+            />
 
-          <!-- JOB -->
-          <div
-            style="
-              font-size: 11px;
-              margin-top: -10px;
-              font-family: Poppins;
-            "
-          >
-            {{ jobTitle }}
-          </div>
+            <!-- SOCIAL -->
+            <table align="center" style="margin-top: 8px">
+              <tbody>
+                <tr>
+                  <td v-for="icon in socialIcons" :key="icon.link" style="padding-right: 9px">
+                    <a :href="icon.link" target="_blank">
+                      <span class="social">
+                        <img :src="icon.img" />
+                      </span>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          <!-- PHONES -->
-          <table style="margin-top: 10px">
-            <tr>
-              <td style="width: 20px">
-                <span class="icon">
-                  <img src="https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v2_10.png" />
-                </span>
-              </td>
-              <td class="text">{{ office }}</td>
-              <td class="sep">|</td>
-              <td class="text">{{ mobile }}</td>
-            </tr>
-          </table>
-
-          <!-- WEBSITE -->
-          <table style="margin-top: 10px">
-            <tr>
-              <td style="width: 20px">
-                <span class="icon">
-                  <img src="https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v2_11.png" />
-                </span>
-              </td>
-              <td class="text">
-                {{ companyUrlReadable }}
-              </td>
-            </tr>
-          </table>
-
-          <!-- ADDRESS -->
-          <table style="margin-top: 10px">
-            <tr>
-              <td style="width: 20px; vertical-align: top">
-                <span class="icon">
-                  <img src="https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v2_12.png" />
-                </span>
-              </td>
-              <td class="text">
-                {{ companyAddress }}
-              </td>
-            </tr>
-          </table>
-
-        </td>
-
-        <!-- RIGHT SIDE -->
-        <td
-          style="
-            vertical-align: top;
-            width: 300px;
-            text-align: center;
-            padding: 7px 0;
-          "
-        >
-          <!-- LOGO -->
-          <img
-            :src="companyLogo"
-            style="
-              width: 170px;
-              display: block;
-              margin: 20px auto 0;
-            "
-          />
-
-          <!-- SOCIAL -->
-          <table align="center" style="margin-top: 8px">
-            <tr>
-              <td v-for="icon in socialIcons" :key="icon.link" style="padding-right: 9px">
-                <a :href="icon.link" target="_blank">
-                  <span class="social">
-                    <img :src="icon.img" />
-                  </span>
-                </a>
-              </td>
-            </tr>
-          </table>
-
-        </td>
-      </tr>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
@@ -166,19 +176,19 @@ export default {
       return [
         {
           link: "https://www.instagram.com/kibocommunication",
-          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v1_4.png"
+          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/public/images-template-icons/v1_4.png"
         },
         {
           link: "https://www.facebook.com/kibocommunication",
-          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v1_5.png"
+          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/public/images-template-icons/v1_5.png"
         },
         {
           link: "https://www.tiktok.com/@kibocommunication",
-          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v1_6.png"
+          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/public/images-template-icons/v1_6.png"
         },
         {
           link: "https://fr.linkedin.com/company/kibo-communication",
-          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v1_7.png"
+          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/public/images-template-icons/v1_7.png"
         }
       ];
     }

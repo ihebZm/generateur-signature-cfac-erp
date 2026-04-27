@@ -159,7 +159,7 @@ export default {
         return '';
       }
 
-      var value = this.form.name.trim();
+      var value = (this.form.name || '').trim();
       if ( ! value ) {
         return 'Please fill in your name.';
       }
@@ -171,7 +171,7 @@ export default {
         return '';
       }
 
-      var value = this.form.jobTitle.trim();
+      var value = (this.form.jobTitle || '').trim();
       if ( ! value ) {
         return 'Please fill in your job title.';
       }
@@ -179,7 +179,7 @@ export default {
       return '';
     },
     officeError() {
-      var value = this.form.office.trim();
+      var value = (this.form.office || '').trim();
       if ( ! value || value === '+' || ( ! this.officeBlured  && ! this.mobileBlured && ! this.companyAddressBlured) ) {
         return '';
       }
@@ -192,7 +192,7 @@ export default {
       return '';
     },
     mobileError() {
-      var value = this.form.mobile.trim();
+      var value = (this.form.mobile || '').trim();
       if ( ! value || value === '+' || ! this.mobileBlured ) {
         return '';
       }
@@ -205,7 +205,7 @@ export default {
       return '';
     },
     companyAddressError() {
-      var value = this.form.companyAddress.trim();
+      var value = (this.form.companyAddress || '').trim();
       if ( ! value || ! this.companyAddressBlured ) {
         return '';
       }
@@ -223,11 +223,11 @@ export default {
       return this.copiedHtml ? 'Copied' : 'Copy Html'
     },
     formValid() {
-      if ( ! this.form.name) {
+      if ( ! (this.form.name || '').trim()) {
         return false;
       }
 
-      if ( ! this.form.jobTitle.trim() ) {
+      if ( ! (this.form.jobTitle || '').trim() ) {
         return false;
       }
 
