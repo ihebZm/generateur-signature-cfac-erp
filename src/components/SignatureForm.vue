@@ -28,7 +28,8 @@
 
     <div class="field field-text">
       <div class="field-label">Office Number</div>
-      <div class="field-desc">Enter in the order of country code, area code, number. Use dashes between each section.</div>
+      <!-- <div class="field-desc">Enter in the order of country code, area code, number. Use dashes between each section.</div> -->
+      <div class="field-desc">Enter office number.</div>
       <div class="field-error" v-show="officeError" v-html="officeError"></div>
       <div class="field-control">
         <input type="text" autocomplete="tel" v-model="form.office" v-on:blur="officeBlured = true;" />
@@ -37,10 +38,19 @@
 
     <div class="field field-text">
       <div class="field-label">Mobile Number</div>
-      <div class="field-desc">Enter in the order of country code, area code, number. Use dashes between each section.</div>
+      <div class="field-desc">Enter mobile number.</div>
       <div class="field-error" v-show="mobileError" v-html="mobileError"></div>
       <div class="field-control">
         <input type="text" autocomplete="tel" v-model="form.mobile" v-on:blur="mobileBlured = true;" />
+      </div>
+    </div>
+
+    <div class="field field-text">
+      <div class="field-label">Company Address</div>
+      <div class="field-desc">Enter the company address.</div>
+      <div class="field-error" v-show="companyAddressError" v-html="companyAddressError"></div>
+      <div class="field-control">
+        <input type="text" autocomplete="tel" v-model="form.companyAddress" v-on:blur="companyAddressBlured = true;" />
       </div>
     </div>
 
@@ -66,6 +76,7 @@ export default {
       jobTitleBlured: false,
       officeBlured: false,
       mobileBlured: false,
+      companyAddressBlured: false,
       copiedHtml: false,
       copiedSignature: false
     }
@@ -144,7 +155,7 @@ export default {
   },
   computed: {
     nameError() {
-      if ( ! this.nameBlured && ! this.jobTitleBlured  && ! this.officeBlured  && ! this.mobileBlured ) {
+      if ( ! this.nameBlured && ! this.jobTitleBlured  && ! this.officeBlured  && ! this.mobileBlured && ! this.companyAddressBlured ) {
         return '';
       }
 
@@ -156,7 +167,7 @@ export default {
       return '';
     },
     jobTitleError() {
-      if ( ! this.jobTitleBlured && ! this.officeBlured  && ! this.mobileBlured ) {
+      if ( ! this.jobTitleBlured && ! this.officeBlured  && ! this.mobileBlured && ! this.companyAddressBlured ) {
         return '';
       }
 
@@ -169,7 +180,7 @@ export default {
     },
     officeError() {
       var value = this.form.office.trim();
-      if ( ! value || value === '+' || ( ! this.officeBlured  && ! this.mobileBlured ) ) {
+      if ( ! value || value === '+' || ( ! this.officeBlured  && ! this.mobileBlured && ! this.companyAddressBlured) ) {
         return '';
       }
 
@@ -189,6 +200,14 @@ export default {
       var phoneNumberPattern = /^\+?[0-9-]+$/;  
       if ( phoneNumberPattern.test( value ) == false ) {
         return 'Numbers only, use dashes to separate.';
+      }
+
+      return '';
+    },
+    companyAddressError() {
+      var value = this.form.companyAddress.trim();
+      if ( ! value || ! this.companyAddressBlured ) {
+        return '';
       }
 
       return '';

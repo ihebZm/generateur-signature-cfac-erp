@@ -1,193 +1,235 @@
 <template>
   <div class="preview">
-    <table cellspacing="0" cellpadding="0" border="0">
-      <tbody>
-        <tr>
-          <td :width="logoWidth" :style="{'vertical-align': 'middle'}">
-            <img :src="logoUrl" :width="logoWidth" :height="logoHeight" :style="{'display': 'block', 'image-rendering': '-webkit-optimize-contrast'}" />
-          </td>
-          <td width="49">
-            <table cellspacing="0" cellpadding="0" border="0" :style="{'margin':'1.5px 0px'}">
-              <tbody>
-                <tr>
-                  <td width="24" :height="separatorHeight" :style="{'width': '24px'}">&nbsp;</td>
-                  <td width="1" :height="separatorHeight" :style="{'border-left': '1px solid #d1dbe5'}"></td>
-                  <td width="24" :height="separatorHeight" :style="{'width': '24px'}">&nbsp;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td>
-            <table cellspacing="0" cellpadding="0" border="0">
-              <tbody>
-                <tr>
-                  <td :style="nameStyle">{{ name }}</td>
-                </tr>
-                <tr v-if="jobTitle">
-                  <td :style="jobTitleStyle">{{ jobTitle }}</td>
-                </tr>
-                <tr v-if="office || mobile">
-                  <td :style="{'padding': '0px 0px 4px 0px', 'font-size': fontSizeSmall, 'line-height': lineHeightSmall}">
-                    <table cellspacing="0" cellpadding="0" border="0">
-                      <tbody>
-                        <tr>
-                          <td v-if="office" :style="{'padding': '0px 10px 0px 0px', 'font-family' : fontFamily, 'font-weight': 500, 'font-size': fontSizeSmall, 'line-height': lineHeightSmall, 'color': colorPrimary, 'whitespace': 'nowrap'}">
-                            <strong>P:</strong> {{ office }}
-                          </td>
-                          <td v-if="mobile" :style="{'padding': '0px', 'font-family' : fontFamily, 'font-weight': 500, 'font-size': fontSizeSmall, 'line-height': lineHeightSmall, 'color': colorPrimary, 'whitespace': 'nowrap'}">
-                            <strong>M:</strong> {{ mobile }}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-                <tr>
-                  <td :style="{'padding': '0px', 'font-size': fontSizeSmall, 'line-height': lineHeightSmall}">
-                    <a :href="companyUrl" :style="{'font-family' : fontFamily, 'font-weight': 700, 'color': '#4393CF', 'text-decoration': 'none'}">{{ companyUrlReadable }}</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+    <table
+      role="presentation"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      style="
+        border-collapse: collapse;
+        width: 700px;
+        max-width: 100%;
+        font-family: Poppins, Arial, sans-serif;
+        color: #231f20;
+        line-height: 1.2;
+      "
+    >
+      <tr>
+        <!-- LEFT SIDE -->
+        <td style="padding: 8px 10px; vertical-align: top; width: 260px">
+          
+          <!-- NAME -->
+          <div
+            style="
+              font-family: 'Brittany Signature', cursive;
+              font-size: 30px;
+              color: #000;
+              width: 216px;
+              height: 65px;
+            "
+          >
+            {{ name }}
+          </div>
+
+          <!-- JOB -->
+          <div
+            style="
+              font-size: 11px;
+              margin-top: -10px;
+              font-family: Poppins;
+            "
+          >
+            {{ jobTitle }}
+          </div>
+
+          <!-- PHONES -->
+          <table style="margin-top: 10px">
+            <tr>
+              <td style="width: 20px">
+                <span class="icon">
+                  <img src="https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v2_10.png" />
+                </span>
+              </td>
+              <td class="text">{{ office }}</td>
+              <td class="sep">|</td>
+              <td class="text">{{ mobile }}</td>
+            </tr>
+          </table>
+
+          <!-- WEBSITE -->
+          <table style="margin-top: 10px">
+            <tr>
+              <td style="width: 20px">
+                <span class="icon">
+                  <img src="https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v2_11.png" />
+                </span>
+              </td>
+              <td class="text">
+                {{ companyUrlReadable }}
+              </td>
+            </tr>
+          </table>
+
+          <!-- ADDRESS -->
+          <table style="margin-top: 10px">
+            <tr>
+              <td style="width: 20px; vertical-align: top">
+                <span class="icon">
+                  <img src="https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v2_12.png" />
+                </span>
+              </td>
+              <td class="text">
+                {{ companyAddress }}
+              </td>
+            </tr>
+          </table>
+
+        </td>
+
+        <!-- RIGHT SIDE -->
+        <td
+          style="
+            vertical-align: top;
+            width: 300px;
+            text-align: center;
+            padding: 7px 0;
+          "
+        >
+          <!-- LOGO -->
+          <img
+            :src="companyLogo"
+            style="
+              width: 170px;
+              display: block;
+              margin: 20px auto 0;
+            "
+          />
+
+          <!-- SOCIAL -->
+          <table align="center" style="margin-top: 8px">
+            <tr>
+              <td v-for="icon in socialIcons" :key="icon.link" style="padding-right: 9px">
+                <a :href="icon.link" target="_blank">
+                  <span class="social">
+                    <img :src="icon.img" />
+                  </span>
+                </a>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
     </table>
   </div>
 </template>
 
-
 <script>
 export default {
-  name: 'SignaturePreview',
-  props: ['companies', 'form'],
-  data() {
-    return {
-      separatorHeight: 64,
-      colorPrimary: '#002848',
-      fontFamily: "Roboto, sans-serif",
-      fontSizeSmall: '10px',
-      lineHeightSmall: '12px',
-      logoUrl: '',
-      logoWidth: 0,
-      logoHeight: 62
-    }
-  },
-  mounted() {
-    this.preloadCompanyLogos();
-    this.parseLogo(this.companyLogo)
-  },
-  methods: {
-    preloadCompanyLogos() {
-      this.companies.forEach((com) => {
-        let image = new Image();
-        image.src = com.logo;
-      });
-    },
-    parseLogo(url){
-      let image = new Image();
-      image.src = url;
-      image.onload = (e) => {
-        this.logoUrl = e.target.src
-        if (e.target.height > this.logoHeight) {
-          this.logoWidth = Math.round(e.target.width * ( this.logoHeight / e.target.height))
-        }
-      }
-    }
-  },
-  watch : {
-    companyLogo(nv) {
-      this.parseLogo(nv)
-    }
-  },
+  name: "SignaturePreview",
+  props: ["companies", "form"],
+
   computed: {
-    nameStyle() {
-      return {
-        'font-family' : this.fontFamily, 
-        'font-weight': 700, 
-        'font-size': '16px', 
-        'line-height': '19px', 
-        'color': this.colorPrimary, 
-        'whitespace': 'nowrap', 
-        'padding': '0px 0px 4px 0px'
-      }
-    },
-    jobTitleStyle() {
-      return {
-        'font-family' : this.fontFamily, 
-        'font-weight': 700, 
-        'font-size': this.fontSizeSmall, 
-        'line-height': this.lineHeightSmall, 
-        'color': '#AEC0D1', 
-        'whitespace': 'nowrap', 
-        'padding': '0px 0px 4px 0px', 
-        'text-transform': 'uppercase'
-      }
-    },
     company() {
-      if (this.form.company) {
-        return this.companies.find((c) => c.name === this.form.company)
-      }
-      return {name: '', url: '', logo: ''};
+      return this.companies.find(c => c.name === this.form.company) || {};
     },
+
     companyLogo() {
-      return this.company.logo
+      return this.company.logo;
     },
-    companyUrl() {
-      return this.company.url;
-    },
+
     companyUrlReadable() {
-      return this.companyUrl.replace(/(^\w+:|^)\/\//, '');
+      return (this.company.url || "").replace(/(^\w+:|^)\/\//, "");
     },
+
     name() {
-      if ( ! this.form.name.trim()) {
-        return 'First Last';
-      }
-
-      return this.form.name.trim();
+      return this.form.name?.trim() || "First Last";
     },
+
     jobTitle() {
-      if (! this.form.jobTitle) {
-        return 'Job Title';
-      }
-
-      return this.form.jobTitle.trim();
+      return this.form.jobTitle?.trim() || "Job Title";
     },
+
     office() {
-      let office = this.form.office.trim();
-      if (office === '+') {
-        return '';
-      }
-
-      return office
+      return this.form.office || "";
     },
-    mobile() {
-      let mobile = this.form.mobile.trim();
-      if (mobile === '+') {
-        return '';
-      }
 
-      return mobile
+    mobile() {
+      return this.form.mobile || "";
+    },
+
+    companyAddress() {
+      return (this.company.address || "");
+    },
+
+    socialIcons() {
+      return [
+        {
+          link: "https://www.instagram.com/kibocommunication",
+          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v1_4.png"
+        },
+        {
+          link: "https://www.facebook.com/kibocommunication",
+          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v1_5.png"
+        },
+        {
+          link: "https://www.tiktok.com/@kibocommunication",
+          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v1_6.png"
+        },
+        {
+          link: "https://fr.linkedin.com/company/kibo-communication",
+          img: "https://raw.githubusercontent.com/ihebZm/generateur-signature-cfac-erp/main/images-template-icons/v1_7.png"
+        }
+      ];
     }
   }
-}
+};
 </script>
 
 <style>
-.preview,
-.preview.box{
-    padding: 20px;
+@import url('https://fonts.cdnfonts.com/css/brittany-signature');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+.icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: #ff3131;
+  border-radius: 50%;
+  position: relative;
 }
-.preview-buttons{
-    margin-top: 15px;
-    margin-left: 20px;
+
+.icon img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  transform: translate(-50%, -50%);
 }
-.preview-buttons button + button {
-    margin-left: 10px;
+
+.social {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #ff3131;
+  border-radius: 50%;
+  position: relative;
 }
-@media (max-width: 919px) {
-    .preview{
-        display: inline-block;
-    }
+
+.social img {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+}
+
+.text {
+  padding-left: 10px;
+  font-size: 8px;
+}
+
+.sep {
+  padding: 0 10px;
+  font-size: 8px;
 }
 </style>
