@@ -159,7 +159,7 @@ ol li:last-child {
 }
 
 .main .preview {
-	min-width: 450px;
+	min-width: 700px;
 }
 
 @media (max-width: 919px) {

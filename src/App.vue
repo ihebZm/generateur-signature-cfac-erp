@@ -4,7 +4,7 @@
       <div class="container">
         <div class="inner">
           <img src="@/assets/logo.png" alt="Logo" class="logo" />
-          <h1>Email Signature Generator</h1>
+          <h1>Signature Generator - GROUP CFAC</h1>
         </div>
       </div>
     </header>
@@ -12,7 +12,7 @@
       <div class="container">
         <div class="inner">
           <div class="form-section">
-            <h2>Enter Details</h2>
+            <h2>Entrez les informations</h2>
             <div class="box">
               <SignatureForm
                 :companies="companies"
