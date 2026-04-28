@@ -253,7 +253,7 @@ export default {
         return '';
       }
 
-      var phoneNumberPattern = /^\+?[0-9-]+$/;  
+      var phoneNumberPattern = /^\+?[0-9- ]+$/;  
       if ( phoneNumberPattern.test( value ) == false ) {
         return 'Numbers only, use dashes to separate.';
       }
@@ -266,7 +266,7 @@ export default {
         return '';
       }
 
-      var phoneNumberPattern = /^\+?[0-9-]+$/;  
+      var phoneNumberPattern = /^\+?[0-9- ]+$/;  
       if ( phoneNumberPattern.test( value ) == false ) {
         return 'Numbers only, use dashes to separate.';
       }
