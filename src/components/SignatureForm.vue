@@ -20,9 +20,40 @@
 
     <div class="field field-text">
       <div class="field-label">Job Title*</div>
+
+      <!-- ✅ RADIO SWITCH -->
+      <div class="field-control" style="display:flex; gap:10px; margin-bottom:8px;">
+        <label>
+          <input type="radio" value="manual" v-model="jobMode" />
+          Write
+        </label>
+
+        <label>
+          <input type="radio" value="list" v-model="jobMode" />
+          Choose
+        </label>
+      </div>
+
       <div class="field-error" v-show="jobTitleError" v-html="jobTitleError"></div>
-      <div class="field-control">
-        <input type="text" autocomplete="organization-title" v-model="form.jobTitle" v-on:blur="jobTitleBlured = true;" />
+
+      <!-- ✅ INPUT MODE -->
+      <div class="field-control" v-if="jobMode === 'manual'">
+        <input
+          type="text"
+          autocomplete="organization-title"
+          v-model="form.jobTitle"
+          @blur="jobTitleBlured = true;"
+        />
+      </div>
+
+      <!-- ✅ SELECT MODE -->
+      <div class="field-control" v-else>
+        <select v-model="form.jobTitle" @change="jobTitleBlured = true">
+          <option disabled value="">Select a job</option>
+          <option v-for="job in jobs" :key="job" :value="job">
+            {{ job }}
+          </option>
+        </select>
       </div>
     </div>
 
@@ -78,7 +109,17 @@ export default {
       mobileBlured: false,
       companyAddressBlured: false,
       copiedHtml: false,
-      copiedSignature: false
+      copiedSignature: false,
+
+      // ✅ NEW
+      jobMode: 'manual', // manual | list
+      jobs: [
+        'CEO',
+        'CTO',
+        'Project Manager',
+        'Full Stack Developer',
+        'Designer'
+      ]
     }
   },
   mounted() {
@@ -232,6 +273,11 @@ export default {
       }
 
       return true;
+    }
+  },
+  watch: {
+    jobMode() {
+      this.form.jobTitle = '';
     }
   }
 }
