@@ -1,3 +1,4 @@
+<!-- © 2026 YourCompany. Template ID: {{ uniqueId }}. Unauthorized use prohibited. -->
 <template>
   <div class="preview">
     <table
@@ -113,7 +114,7 @@
                     </a>
                   </td>
                   <td style="padding-left: 10px; font-size: 8px; color: var(--brand-color); font-family: 'Poppins', light;">
-                    {{ companyAddress }}
+                    <span v-html="companyAddress"></span>
                   </td>
                 </tr>
               </tbody>
@@ -225,7 +226,8 @@ export default {
     },
 
     companyAddress() {
-      return this.company.address || "";
+      const value = this.form.companyAddress?.trim() || this.company.address || "";
+      return value.replace(/\s{2,}/g, '<br>');
     },
 
     socialIcons() {
