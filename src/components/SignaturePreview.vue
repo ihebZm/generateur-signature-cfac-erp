@@ -36,7 +36,7 @@
             <div style="
                 font-size: 13px;
                 margin-top: -10px;
-                color: var(--brand-color);
+                color: #231F20;
                 font-family: 'Poppins', light;
               ">
               {{ jobTitle }}
@@ -59,13 +59,13 @@
                       </span>
                     </a>
                   </td>
-                  <td style="padding-left: 10px; font-size: 12px; color: var(--brand-color); font-family: 'Poppins', light;">
+                  <td style="padding-left: 10px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
                     {{ office }}
                   </td>
-                  <td style="padding: 0 10px; font-size: 12px; color: var(--brand-color); font-family: 'Poppins', light;">
+                  <td style="padding: 0 10px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
                     |
                   </td>
-                  <td style="font-size: 12px; color: var(--brand-color); font-family: 'Poppins', light;">
+                  <td style="font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
                     {{ mobile }}
                   </td>
                 </tr>
@@ -89,7 +89,7 @@
                       </span>
                     </a>
                   </td>
-                  <td style="padding-left: 10px; font-size: 12px; color: var(--brand-color);" :style="{ color: companyColor }">
+                  <td style="padding-left: 10px; font-size: 12px; color: #231F20;">
                     {{ companyUrlReadable }}
                   </td>
                 </tr>
@@ -113,7 +113,7 @@
                       </span>
                     </a>
                   </td>
-                  <td style="padding-left: 10px; font-size: 12px; color: var(--brand-color); font-family: 'Poppins', light;">
+                  <td style="padding-left: 10px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
                     <span v-html="companyAddress"></span>
                   </td>
                 </tr>
