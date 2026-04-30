@@ -15,6 +15,6 @@ mv /home/ihebzmcfac/docker /opt/signature-generator-cfac-group/
 ## Step 4 — build application on vm
 
 ```bash
-docker-compose down
-docker-compose up -d --build
+docker compose down
+docker compose up -d --build
 ```
