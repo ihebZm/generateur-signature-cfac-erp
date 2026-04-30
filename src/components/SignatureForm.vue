@@ -202,7 +202,8 @@ export default {
 
       const el = document.createElement('textarea');
 
-      el.value = element.$el.innerHTML;
+      // el.value = element.$el.innerHTML;
+      el.value = element.$el.outerHTML;
       el.setAttribute('readonly', '');
       el.style.position = 'absolute';
       el.style.left = '-9999px';
