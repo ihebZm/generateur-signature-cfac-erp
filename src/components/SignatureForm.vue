@@ -249,28 +249,21 @@ export default {
     },
     officeError() {
       var value = (this.form.office || '').trim();
-      if ( ! value || value === '+' || ( ! this.officeBlured  && ! this.mobileBlured && ! this.companyAddressBlured) ) {
+      if (!value || value === '+' || (!this.officeBlured && !this.mobileBlured && !this.companyAddressBlured)) {
         return '';
       }
 
-      var phoneNumberPattern = /^\+?[0-9- ]+$/;  
-      if ( phoneNumberPattern.test( value ) == false ) {
-        return 'Numbers only, use dashes to separate.';
-      }
-
+      // Accept any text, special characters, and spaces - no validation needed
       return '';
     },
+
     mobileError() {
       var value = (this.form.mobile || '').trim();
-      if ( ! value || value === '+' || ! this.mobileBlured ) {
+      if (!value || value === '+' || !this.mobileBlured) {
         return '';
       }
 
-      var phoneNumberPattern = /^\+?[0-9- ]+$/;  
-      if ( phoneNumberPattern.test( value ) == false ) {
-        return 'Numbers only, use dashes to separate.';
-      }
-
+      // Accept any text, special characters, and spaces - no validation needed
       return '';
     },
     companyAddressError() {

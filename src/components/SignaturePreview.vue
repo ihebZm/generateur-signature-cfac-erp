@@ -49,14 +49,28 @@
                   <td style="width: 20px; vertical-align: middle">
                     <a :href="'tel:' + office" target="_blank" rel="noopener noreferrer"
                       style="text-decoration: none; display: inline-block">
-                      <span :style="iconStyle">
-                        &#8203;
-                        <img
-                          src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/images-template-icons/v2_10.png"
-                          alt="Phone"
-                          style="position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; border: 0; transform: translate(-50%, -50%);"
-                        />
-                      </span>
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                          <tr>
+                            <td align="center" valign="middle"
+                                :style="{
+                                  width: '20px',
+                                  height: '20px',
+                                  background: companyColor,
+                                  borderRadius: '50%'
+                                }">
+
+                              <img
+                                src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/images-template-icons/v2_10.png"
+                                width="12"
+                                height="12"
+                                style="display:block; border:0;"
+                              />
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </a>
                   </td>
                   <td style="padding-left: 10px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
@@ -79,14 +93,28 @@
                   <td style="width: 20px; vertical-align: middle">
                     <a :href="company.url" target="_blank" rel="noopener noreferrer"
                       style="text-decoration: none; display: inline-block">
-                      <span :style="iconStyle">
-                        &#8203;
-                        <img
-                          src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/images-template-icons/v2_11.png"
-                          alt="Website"
-                          style="position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; border: 0; transform: translate(-50%, -50%);"
-                        />
-                      </span>
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                          <tr>
+                            <td align="center" valign="middle"
+                                :style="{
+                                  width: '20px',
+                                  height: '20px',
+                                  background: companyColor,
+                                  borderRadius: '50%'
+                                }">
+
+                              <img
+                                src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/images-template-icons/v2_11.png"
+                                width="12"
+                                height="12"
+                                style="display:block; border:0;"
+                              />
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </a>
                   </td>
                   <td style="padding-left: 10px; font-size: 12px; color: #231F20;">
@@ -103,14 +131,28 @@
                   <td style="width: 20px; vertical-align: top">
                     <a :href="'https://maps.google.com/?q=' + encodeURIComponent(companyAddress)" target="_blank" rel="noopener noreferrer"
                       style="text-decoration: none; display: inline-block">
-                      <span :style="iconStyle">
-                        &#8203;
-                        <img
-                          src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/images-template-icons/v2_12.png"
-                          alt="Location"
-                          style="position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; border: 0; transform: translate(-50%, -50%);"
-                        />
-                      </span>
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                          <tr>
+                            <td align="center" valign="middle"
+                                :style="{
+                                  width: '20px',
+                                  height: '20px',
+                                  background: companyColor,
+                                  borderRadius: '50%'
+                                }">
+
+                              <img
+                                src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/images-template-icons/v2_12.png"
+                                width="12"
+                                height="12"
+                                style="display:block; border:0;"
+                              />
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </a>
                   </td>
                   <td style="padding-left: 10px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
@@ -231,7 +273,7 @@ export default {
     },
 
     socialIcons() {
-      return [
+      const icons = [
         {
           link: this.company.socialIcons?.instagram || "#",
           img: "https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/images-template-icons/v1_4.png",
@@ -253,6 +295,9 @@ export default {
           alt: "LinkedIn"
         }
       ];
+
+      // Filter out icons where link is "#", null, undefined, or empty string
+      return icons.filter(icon => icon.link && icon.link.trim() !== "#" && icon.link.trim() !== "");
     }
   }
 };

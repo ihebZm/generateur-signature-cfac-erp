@@ -1,8 +1,8 @@
-version: '3.8'
-
 services:
   vite_app:
-    build: .
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
     container_name: vite_signature_app
     ports:
       - "8085:80" # 👈 change port here
