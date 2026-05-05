@@ -1,6 +1,6 @@
 <!-- © 2026 Iheb Zmerli. Template ID: {{ uniqueId }}. Unauthorized use prohibited. -->
 <template>
-  <div class="preview">
+  <div class="preview" :class="{ 'dark-mode': isDarkMode }">
     <table
       role="presentation"
       cellpadding="0"
@@ -18,15 +18,15 @@
       <tbody>
         <tr>
           <!-- LEFT SIDE -->
-          <td style="padding: 8px 10px; vertical-align: top; width: 260px">
+          <td style="padding: 8px 10px; vertical-align: top; width: 370px">
 
             <!-- NAME -->
             <div style="
-                font-family: 'Brittany Signature', cursive;
+                font-family: Georgia, sans-serif;
                 font-weight: 400;
                 font-size: 31px;
                 color: #000;
-                width: 216px;
+                width: 370px;
                 height: 65px;
               ">
               {{ name }}
@@ -73,13 +73,13 @@
                       </table>
                     </a>
                   </td>
-                  <td style="padding-left: 10px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
+                  <td v-if="office" style="padding-left: 10px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
                     {{ office }}
                   </td>
-                  <td style="padding: 0 10px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
+                  <td v-if="office && mobile" style="padding: 0 10px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
                     |
                   </td>
-                  <td style="font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
+                  <td v-if="mobile" style="font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
                     {{ mobile }}
                   </td>
                 </tr>
@@ -206,7 +206,7 @@
 <script>
 export default {
   name: "SignaturePreview",
-  props: ["companies", "form"],
+  props: ["companies", "form", "isDarkMode"],
 
   computed: {
     company() {
@@ -306,4 +306,42 @@ export default {
 <style>
 @import url('https://fonts.cdnfonts.com/css/brittany-signature');
 @import url('https://fonts.cdnfonts.com/css/poppins');
+@import url('https://fonts.cdnfonts.com/css/georgia');
+.preview.dark-mode {
+  background-color: #1a1a1a !important;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.preview.dark-mode,
+.preview.dark-mode div,
+.preview.dark-mode td,
+.preview.dark-mode span,
+.preview.dark-mode font,
+.preview.dark-mode a {
+  color: #ffffff !important;
+}
+
+.preview.dark-mode td[style*="border-radius: 50%"],
+.preview.dark-mode span[style*="border-radius: 50%"] {
+  background: transparent !important;
+}
+
+.preview.dark-mode img {
+  filter: brightness(0) invert(1);
+}
+
+.preview.dark-mode img[style*="width: 200px"] {
+  filter: none;
+}
+.preview {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.preview.dark-mode {
+  background-color: #1a1a1a !important;
+  /* keep padding and border-radius the same, or remove them if inherited */
+}
 </style>
