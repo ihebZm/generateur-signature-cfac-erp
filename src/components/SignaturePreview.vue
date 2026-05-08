@@ -172,7 +172,7 @@
             <img
               :src="companyLogo"
               :alt="company.name"
-              style="width: 210px; height: auto; border: 0; display: block; margin: 4px 52px 12px 52px;"
+              style="width: 210px; height: auto; border: 0; display: block; margin: 4px 52px 7px 52px;"
             />
 
             <!-- SOCIAL -->
