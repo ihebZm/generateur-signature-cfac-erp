@@ -172,15 +172,18 @@
             <img
               :src="companyLogo"
               :alt="company.name"
-              style="width: 190px; height: auto; border: 0; display: block; margin: 4px auto 0;"
+              style="width: 210px; height: auto; border: 0; display: block; margin: 4px 52px 12px 52px;"
             />
 
             <!-- SOCIAL -->
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"
-              style="margin-top: 2px; margin-left: auto">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
               <tbody>
                 <tr>
-                  <td v-for="icon in socialIcons" :key="icon.link" style="padding-right: 9px; vertical-align: middle;">
+                  <td v-for="(icon, index) in socialIcons" :key="icon.link" 
+                      :style="{ 
+                        paddingRight: (index === socialIcons.length - 1) ? '0px' : '9px',
+                        verticalAlign: 'middle' 
+                      }">
                     <a :href="icon.link" target="_blank" rel="noopener noreferrer"
                       style="text-decoration: none; display: inline-block; line-height: 0;">
                       <span :style="socialStyle" style="display: inline-block; position: relative; width: 35px; height: 35px;">
