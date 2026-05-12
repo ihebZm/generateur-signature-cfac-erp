@@ -19,7 +19,7 @@
       <tbody>
         <tr>
           <!-- LEFT SIDE -->
-          <td style="padding: 8px 10px; vertical-align: top; width: 340px">
+          <td style="padding: 8px 10px; vertical-align: top; width: auto; min-width: 340px;">
 
             <!-- NAME -->
             <div class="signature-name" style="
@@ -27,11 +27,12 @@
                 font-weight: 400;
                 font-size: 30px;
                 color: #000;
-                max-width: 350px;
-                width: 80%;
+                max-width: none;
+                width: auto;
+                white-space: nowrap;
                 margin-bottom: 12px;
               ">
-              {{ name }}
+                {{ name }}
             </div>
 
             <!-- JOB -->
