@@ -73,6 +73,7 @@
                           white-space: nowrap;
                           overflow: hidden;
                           text-overflow: ellipsis;
+                          text-transform: uppercase;
                         "
                         :style="{ color: companyColor }"
                       >
@@ -435,7 +436,7 @@
                       />
 
                       <!-- QR CODE SECTION -->
-                      <div style="text-align: center; margin-top: 8px;" v-if="form.showPoweredBy">
+                      <div style="text-align: center; margin-top: 8px;" v-if="form.showQrCode">
                         <div style="
                           display: inline-block;
                           padding: 3px;

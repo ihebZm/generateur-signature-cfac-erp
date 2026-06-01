@@ -86,11 +86,15 @@
     </div>
 
     <div class="field field-checkbox">
-      <div class="field-label">Show Powered By Logo</div>
+      <div class="field-label">Options</div>
       <div class="field-control">
         <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
           <input type="checkbox" v-model="form.showPoweredBy" />
-          <span>Yes, show the logo</span>
+          <span>Yes, show Powered By CFAC Group</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" v-model="form.showQrCode" />
+          <span>Yes, show QR Code</span>
         </label>
       </div>
     </div>
@@ -144,7 +148,8 @@ export default {
       companyAddressBlured: false,
       copiedHtml: false,
       copiedSignature: false,
-      showPoweredBy: true,
+      showPoweredBy: false,
+      showQrCode: false,
       useWhiteBackground: false,
 
       // ✅ NEW
@@ -188,7 +193,10 @@ export default {
   },
   mounted() {
     if (this.form.showPoweredBy === undefined) {
-      this.$set(this.form, 'showPoweredBy', true);
+      this.$set(this.form, 'showPoweredBy', false);
+    }
+    if (this.form.showQrCode === undefined) {
+      this.$set(this.form, 'showQrCode', false);
     }
     // Add this to initialize useWhiteBackground
     if (this.form.useWhiteBackground === undefined) {
