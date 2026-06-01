@@ -86,7 +86,7 @@
     </div>
 
     <div class="field field-checkbox">
-      <div class="field-label">Options</div>
+      <div class="field-label">Other Options</div>
       <div class="field-control">
         <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
           <input type="checkbox" v-model="form.showPoweredBy" />
@@ -100,8 +100,8 @@
     </div>
 
     <div class="field field-radio">
-      <div class="field-label">Signature Background Style</div>
-      <div class="field-desc">Choose between standard or white background style.</div>
+      <div class="field-label">Signature Style</div>
+      <div class="field-desc">Choose between standard or background style.</div>
       <div class="field-control" style="display: flex; gap: 16px; margin-top: 8px;">
         <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
           <input type="radio" value="false" v-model="form.useWhiteBackground" />
@@ -109,7 +109,7 @@
         </label>
         <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
           <input type="radio" value="true" v-model="form.useWhiteBackground" />
-          <span>White Background Style</span>
+          <span>Background Style</span>
         </label>
       </div>
     </div>
