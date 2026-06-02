@@ -104,11 +104,11 @@
       <div class="field-desc">Choose between standard or background style.</div>
       <div class="field-control" style="display: flex; gap: 16px; margin-top: 8px;">
         <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-          <input type="radio" value="false" v-model="form.useWhiteBackground" />
+          <input type="radio" :value="false" v-model="form.useWhiteBackground" />
           <span>Standard Style</span>
         </label>
         <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-          <input type="radio" value="true" v-model="form.useWhiteBackground" />
+          <input type="radio" :value="true" v-model="form.useWhiteBackground" />
           <span>Background Style</span>
         </label>
       </div>
