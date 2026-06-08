@@ -277,7 +277,7 @@
                     v-if="form.showQrCodeWebsite"
                   />
                   <img 
-                    src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/qrRate-us.png"
+                    src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/qrRateus.png"
                     alt="QR Rateus"
                     :style="qrCodeStyle"
                     style="
