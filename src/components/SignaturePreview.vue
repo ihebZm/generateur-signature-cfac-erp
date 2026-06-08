@@ -258,7 +258,7 @@
               />
 
               <!-- QR CODE SECTION -->
-              <div style="text-align: center; margin-top: 8px;" v-if="form.showQrCode">
+              <div style="text-align: center; margin-top: 8px;" >
                 <div style="
                   display: inline-block;
                   padding: 3px;
@@ -272,8 +272,19 @@
                     :style="qrCodeStyle"
                     style="
                       display: block;
-                      border-radius: 4px;
+                      border-radius: 3px;
                     "
+                    v-if="form.showQrCodeWebsite"
+                  />
+                  <img 
+                    src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/qrRateus.png"
+                    alt="QR Rateus"
+                    :style="qrCodeStyle"
+                    style="
+                      display: block;
+                      border-radius: 3px;
+                    "
+                    v-if="form.showQrCodeRateus"
                   />
                 </div>
               </div>
@@ -362,10 +373,10 @@ export default {
 
     qrCodeStyle() {
       return {
-        width: "29px",
-        minWidth: "29px",
-        maxWidth: "29px",
-        height: "24px"
+        width: "33px",
+        minWidth: "33px",
+        maxWidth: "33px",
+        height: "33px"
       };
     },
         
