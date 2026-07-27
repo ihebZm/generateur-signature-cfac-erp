@@ -126,7 +126,7 @@
                         cellpadding="0"
                         cellspacing="0"
                         border="0"
-                        style="margin-bottom: 20px"
+                        style="margin-bottom: 30px"
                       >
                         <tbody>
                           <tr>
@@ -179,7 +179,7 @@
                             <td
                               v-if="office && mobile"
                               style="
-                                padding: 0 8px;
+                                padding: 0 4px;
                                 font-size: 12px;
                                 color: #999;
                               "
@@ -196,6 +196,16 @@
                             >
                               <a :href="'tel:' + mobile" style="color: inherit; text-decoration: none;">{{ mobile }}</a>
                             </td>
+                            <td
+                              v-if="post"
+                              style="
+                                font-size: 12px;
+                                color: #333;
+                                font-family: 'Poppins', Arial, sans-serif;
+                              "
+                            >
+                              &nbsp;|&nbsp; Post :&nbsp;<a :href="'tel:' + post" style="color: inherit; text-decoration: none;">{{ post }}</a>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -206,7 +216,7 @@
                         cellpadding="0"
                         cellspacing="0"
                         border="0"
-                        style="margin-bottom: 20px"
+                        style="margin-bottom: 30px"
                       >
                         <tbody>
                           <tr>
@@ -381,7 +391,7 @@
                       cellspacing="0"
                       border="0"
                       align="center"
-                      style="margin: 15px auto 30px auto;"
+                      style="margin: 15px auto 10px auto;"
                     >
                       <tbody>
                         <tr>
@@ -454,7 +464,7 @@
                       />
 
                       <!-- QR CODE SECTION - Dynamic vCard QR -->
-                      <div style="text-align: center; margin-top: 2px;">
+                      <div style="text-align: center; margin-top: 1px;">
                         <div style="
                           display: inline-block;
                           border-radius: 16px;
@@ -591,19 +601,19 @@ export default {
 
     qrCodeStyle() {
       return {
-        width: "30px",
-        minWidth: "30px",
-        maxWidth: "30px",
-        height: "26px"
+        width: "31px",
+        minWidth: "31px",
+        maxWidth: "31px",
+        height: "31px"
       };
     },
 
     vCardQRCodeStyle() {
       return {
-        width: "132px",
-        minWidth: "132px",
-        maxWidth: "132px",
-        height: "132px"
+        width: "145px",
+        minWidth: "145px",
+        maxWidth: "145px",
+        height: "145px"
       };
     },
         
@@ -631,6 +641,10 @@ export default {
       return this.form.mobile || "";
     },
 
+    post() {
+      return this.form.post || "";
+    },
+
     companyAddress() {
       const value =
         this.form.companyAddress?.trim() || this.company.address || "";
@@ -648,10 +662,11 @@ export default {
       const companyName = this.company.name || "";
       const office = this.office || "";
       const mobile = this.mobile || "";
+      const post = this.post || "";
       const email = this.company.email || "";
 
       // Skip if no useful data
-      if (!name && !jobTitle && !companyName && !office && !mobile && !email) {
+      if (!name && !jobTitle && !companyName && !office && !mobile && !post && !email) {
         return null;
       }
 
@@ -669,6 +684,7 @@ export default {
       if (companyName) vCard += `ORG:${this.escapeVCardString(companyName)}\r\n`;
       if (office) vCard += `TEL;TYPE=WORK,VOICE:${office}\r\n`;
       if (mobile) vCard += `TEL;TYPE=CELL,VOICE:${mobile}\r\n`;
+      if (post) vCard += `TEL;TYPE=WORK;X-SUBTYPE=Post:${post}\r\n`;
       if (email) vCard += `EMAIL;TYPE=WORK:${email}\r\n`;
       
       vCard += 'REV:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z\r\n';
@@ -724,6 +740,10 @@ export default {
       deep: true
     },
     'form.mobile': {
+      handler() { this.regenerateQRCode(); },
+      deep: true
+    },
+    'form.post': {
       handler() { this.regenerateQRCode(); },
       deep: true
     },
