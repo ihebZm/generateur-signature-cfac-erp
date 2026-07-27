@@ -86,6 +86,12 @@
                   <td v-if="mobile" style="font-size: 12px; color: #231F20; font-family: 'Poppins', light; white-space: nowrap;">
                     {{ mobile }}
                   </td>
+                  <td v-if="office && mobile && post" style="padding: 0 8px; font-size: 12px; color: #231F20; font-family: 'Poppins', light;">
+                  &nbsp;|&nbsp; Poste :
+                  </td>
+                  <td v-if="post" style="font-size: 12px; color: #231F20; font-family: 'Poppins', light; white-space: nowrap;">
+                    {{ post }}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -402,6 +408,10 @@ export default {
 
     mobile() {
       return this.form.mobile || "";
+    },
+
+    post() {
+      return this.form.post || "";
     },
 
     companyAddress() {
