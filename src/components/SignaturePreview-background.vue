@@ -68,7 +68,7 @@
                         style="
                           font-family: Georgia, serif;
                           font-weight: 500;
-                          font-size: 32px;
+                          font-size: 30px;
                           color: #1a1a1a;
                           margin-bottom: 20px;
                           letter-spacing: -0.5px;
@@ -901,7 +901,7 @@ export default {
   }
 
   .signature-name {
-    font-size: 20px !important;
+    font-size: 18px !important;
     white-space: normal !important;
     word-wrap: break-word !important;
     line-height: 1.2 !important;
