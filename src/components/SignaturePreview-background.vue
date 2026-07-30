@@ -560,7 +560,7 @@ export default {
     },
 
     logoStyle() {
-      const width = this.company.logoWidthBg || 190;
+      const width = this.company.logoWidthBg || 170;
       const height = this.company.logoHeightBg || "auto";
       const margin = this.company.logoMarginBg || "10px auto 5px auto";
 
