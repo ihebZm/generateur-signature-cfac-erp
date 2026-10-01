@@ -194,6 +194,7 @@ export default {
         'Project Manager',
         'IT Manager',
         'Software Engineer',
+        'Junior Data Analyst',
         'Managing Director',
         'Legal Associate',
         'Administratif manager',
@@ -215,6 +216,7 @@ export default {
         'Senior HR Associate',
         'HR Associate',
         'Auditor Associate',
+        'Business Developer',
       ],
 
       companyAddresses: [
