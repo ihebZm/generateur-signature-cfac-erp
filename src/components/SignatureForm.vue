@@ -194,6 +194,7 @@ export default {
         'Project Manager',
         'IT Manager',
         'Software Engineer',
+        'Junior Data Analyst',
         'Managing Director',
         'Legal Associate',
         'Administratif manager',
