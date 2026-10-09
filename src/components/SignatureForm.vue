@@ -217,7 +217,7 @@ export default {
         'HR Associate',
         'Auditor Associate',
         'Business Developer',
-        'Business Restructuring Consultant'
+        'Consultante en Restructuration des Entreprises'
       ],
 
       companyAddresses: [
