@@ -224,9 +224,11 @@ export default {
         '4th floor, Block A, Narimane Building, Chott Mariem Street, 1073 Montplaisir, Tunis, Tunisia',
         '2nd floor, Block A, Narimane Building, Chott Mariem Street, 1073 Montplaisir, Tunis, Tunisia',
         '5th floor, Block A, Narimane Building, Chott Mariem Street, 1073 Montplaisir, Tunis, Tunisia',
+        '99 Avenue Achille Peretti, 92200 Neuilly-sur-Seine, France',
         '4ème étage, Bloc A, Immeuble Narimane, Rue Chott Mariem, 1073 Montplaisir, Tunis, Tunisie',
         '2ème étage, Bloc A, Immeuble Narimane, Rue Chott Mariem, 1073 Montplaisir, Tunis, Tunisie',
-        '5ème étage, Bloc A, Immeuble Narimane, Rue Chott Mariem, 1073 Montplaisir, Tunis, Tunisie'
+        '5ème étage, Bloc A, Immeuble Narimane, Rue Chott Mariem, 1073 Montplaisir, Tunis, Tunisie',
+        '99 Avenue Achille Peretti, 92200 Neuilly-sur-Seine, France',
       ]
     }
   },
