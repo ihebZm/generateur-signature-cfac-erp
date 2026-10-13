@@ -464,46 +464,74 @@
                       />
 
                       <!-- QR CODE SECTION - Dynamic vCard QR -->
-                      <div style="text-align: center; margin-top: 1px;">
+                      <div style="text-align: center; margin-top: 1px; width: 100%;">
                         <div style="
                           display: inline-block;
+                          text-align: center;
                           border-radius: 16px;
+                          font-size: 0;
+                          line-height: 0;
+                          mso-line-height-rule: exactly;
                         " :style="{ borderColor: companyColor }">
-                          <img 
+
+                          <!-- vCard QR -->
+                          <img
                             v-if="form.showVCardQR && vCardQRCode"
                             :src="vCardQRCode"
                             alt="vCard QR Code - Scan to save contact"
                             :style="vCardQRCodeStyle"
                             style="
-                              display: block;
+                              display: inline-block;
+                              vertical-align: middle;
                               border-radius: 0px;
+                              margin: 0 auto;
                             "
                             :key="qrGenerationKey"
                           />
-                          <div 
+
+                          <div
                             v-else-if="form.showVCardQR && !vCardQRCode"
-                            style="width:50px;height:50px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:8px;color:#999;"
+                            style="
+                              display: inline-block;
+                              vertical-align: middle;
+                              width: 50px;
+                              height: 50px;
+                              background: #f0f0f0;
+                              font-size: 8px;
+                              line-height: 50px;
+                              color: #999;
+                              text-align: center;
+                              mso-line-height-rule: exactly;
+                            "
                           >
                             Loading...
                           </div>
-                          <img 
+
+                          <!-- Website QR -->
+                          <img
                             v-if="form.showQrCodeWebsite"
                             src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/qr.png"
                             alt="QR Code"
                             :style="qrCodeStyle"
                             style="
-                              display: block;
+                              display: inline-block;
+                              vertical-align: middle;
                               border-radius: 4px;
+                              margin: 0 auto;
                             "
                           />
-                          <img 
+
+                          <!-- Rate Us QR -->
+                          <img
                             v-if="form.showQrCodeRateus"
                             src="https://raw.githubusercontent.com/ihebZmez/signature-generator/main/public/qrRateus.png"
                             alt="QR Rateus"
                             :style="qrCodeStyle"
                             style="
-                              display: block;
+                              display: inline-block;
+                              vertical-align: middle;
                               border-radius: 4px;
+                              margin: 0 auto;
                             "
                           />
                         </div>
