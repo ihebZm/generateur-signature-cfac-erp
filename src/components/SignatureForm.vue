@@ -217,7 +217,8 @@ export default {
         'HR Associate',
         'Auditor Associate',
         'Business Developer',
-        'Strategy & Corporate Restructuring Consultant'
+        'Strategy & Corporate Restructuring Consultant',
+        'Assistant Project Manager'
       ],
 
       companyAddresses: [
